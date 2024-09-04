@@ -9,7 +9,7 @@ switch ($metodo) {
     default:
         http_response_code(200);
         echo json_encode(
-            ['status' => false, 'message' => 'Método não permitido.']
+            ['status' => false, 'message' => 'Erro na solicitação.']
         );
         break;
 
