@@ -1,12 +1,12 @@
 <?php
 namespace App\Backend;
 use App\Backend\Controller\UserController;
+use App\Backend\Model\User;
 
 require_once '../vendor/autoload.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
-$url = $_SERVER['REQUEST_URI'];
-
+$uri = $_SERVER['REQUEST_URI'];
 switch($method){
     default:
         http_response_code(204);
@@ -19,7 +19,7 @@ switch($method){
                 $users = $controller->getUsers();
                 if($users){
                     http_response_code(200);
-                    echo json_encode(['status' => true, 'message'=> 'Recebido com sucesso', 'uri'=> $uri]);
+                    echo json_encode(['status' => true, 'message'=> 'Recebido com sucesso', 'Usuários'=> $users]);
                 } else {
                     http_response_code(204);
                     echo json_encode(['status' => false, 'message'=> 'Recebido com falhas', 'users'=> []]);
