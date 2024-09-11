@@ -7,6 +7,7 @@ require_once '../vendor/autoload.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
+
 switch($method){
     default:
         http_response_code(204);
